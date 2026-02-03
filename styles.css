@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Google Sans", sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: left;
+    margin: 2rem 0 0 4rem;
+}
+
+#task-form {
+    display: flex;
+    margin: 2rem 4rem;
+    padding: 0;
+    justify-content: space-between;
+}
+
+#task-input {
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+    border: 1px solid #b2bbb8;
+    border-radius: 1rem;
+    background-color: #dddddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 1rem 2.8rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: rgb(79, 255, 208);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#task-list {
+    list-style-type: none;
+    font-size: 1.8rem;
+    margin: 1rem 4rem;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    margin: 0.8rem 0;
+    border-radius: 1rem;
+    justify-content: space-between;
+    background-color: #e7fffb;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.task-item input[type="checkbox"] {
+    transform: scale(1.8);
+    margin-left: 2.5rem;
+}
+
+.task-item span {
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: left;
+    align-items: center;
+    padding: 0 0 0 2rem;
+}
+
+.task-item button {
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    background-color: rgb(255, 160, 160);
+}
+
+@media (max-width: 1024px) {
+
+    #task-input {
+        width: 80%;
+        padding: 0.5rem 2rem;
+    }
+
+    .task-item button {
+        padding: 1rem 1.5rem;
+    }
+
+    .submit-button {
+        padding: 1rem 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+
+    #task-form {
+        margin: 1rem;
+    }
+
+    #task-input {
+        width: 80%;
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .submit-button {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        cursor: pointer;
+        padding: 1rem 1rem;
+    }
+
+    #task-list {
+        margin: 1rem;
+    }
+
+    .task-item button {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .task-item span {
+        font-size: 1rem;
+    }
+
+    #task-list {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+
+    #task-form {
+        margin: 1rem;
+    }
+
+    #task-input {
+        width: 80%;
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .submit-button {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        cursor: pointer;
+        padding: 1rem 1rem;
+    }
+
+    #task-list {
+        margin: 1rem;
+    }
+
+    .task-item button {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .task-item span {
+        font-size: 1rem;
+    }
+
+    #task-list {
+        font-size: 1.5rem;
+    }
+}
