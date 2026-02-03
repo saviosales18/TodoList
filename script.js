@@ -69,7 +69,11 @@ function loadTasks() {
             li.innerHTML = `
             <input type="checkbox" ${task.done ? "checked" : ""}>
             <span style="text-decoration:${task.done ? "line-through" : "none"}">${task.text}</span>
-            <button>Delet</button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </button>
         `;
 
             li.querySelector("input").onclick = () => toggleTask(task);
