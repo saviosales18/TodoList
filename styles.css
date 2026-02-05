@@ -1,24 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Google Sans", sans-serif;
 }
 
+html {
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    flex-direction: column;
+    height: 100%;
     padding: 0;
     margin: 0;
+    background: #ffffff;
+    background: linear-gradient(180deg, rgb(248, 253, 255) 10%, rgb(207, 236, 255) 200%);
 }
 
 svg {
     width: 1.5rem;
 }
 
-.title {
-    font-size: 2.5rem;
+header {
+    display: flex;
     margin: 2rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .title {
+    font-size: 2.5rem;
+}
+
+header #task-count {
+    font-size: 1.5rem;
+    color: #555;
+    justify-content: end;
+    position: absolute;
+    right: 0;
+    margin: 0 5rem 0 0;
+}
+
+header .reset-button {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #ffe3ec;
+    background: radial-gradient(circle, rgb(255, 240, 220) 0%, rgb(255, 159, 57) 100%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 #task-form {
@@ -32,15 +68,16 @@ svg {
     font-size: 1.5rem;
     padding-left: 2rem;
     border-radius: 1rem;
-    background-color: #e6e6e6;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .submit-button {
     cursor: pointer;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: rgb(79, 255, 208);
+    background: #dbfff7;
+    background: radial-gradient(circle, rgba(219, 255, 247, 1) 0%, rgb(144, 255, 225) 100%);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,22 +85,64 @@ svg {
     list-style-type: none;
     font-size: 1.8rem;
     margin: 0 4rem;
+    padding: 0;
+    flex: 1;
 }
 
 .task-item {
     display: flex;
     margin: 0.8rem 0;
-    padding: 0 0 0 2rem;
-    border-radius: 1rem;
-    justify-content: space-between;
+    padding: 0 0 0 1.5rem;
     align-items: center;
-    background-color: #e7fffb;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.task-item .move-button {
+    cursor: grab;
+    padding: 0;
+    margin: 0 2rem 0 0;
+    scale: 1.2;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 2;
 }
 
 .task-item input[type="checkbox"] {
+    -webkit-appearance: none;
+    margin: 0;
+    font: inherit;
     width: 1.2rem;
-    height: 1.2rem;
+    border: 0.12rem solid currentColor;
+    border-radius: 0.4rem;
+    display: flex;
+    place-content: center;
+}
+
+.task-item input[type="checkbox"]::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem #90ffe1;
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1.4);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(1px, 0.2rem) solid currentColor;
+    outline-offset: max(1px, 0.2rem);
 }
 
 .task-item span {
@@ -75,18 +154,39 @@ svg {
     padding: 0 0 0 2rem;
 }
 
-.task-item button {
+.task-item .delete-button {
     cursor: pointer;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: rgb(255, 160, 160);
+    background: #ffe3ec;
+    background: radial-gradient(circle, rgba(255, 227, 236, 1) 0%, rgba(255, 177, 177, 1) 100%);
+    position: relative;
+    z-index: 2;
 }
+
+footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    z-index: 3;
+}
+
 
 @media (max-width: 768px) {
 
-    .title {
-        font-size: 2.2rem;
+    header {
         margin: 1.5rem 3rem;
+    }
+
+    header .title {
+        font-size: 2.25rem;
+        margin: 0;
+    }
+
+    header #task-count {
+        font-size: 1.5rem;
     }
 
     #task-form {
@@ -101,16 +201,38 @@ svg {
         margin: 0 3rem;
     }
 
+    .task-item {
+        padding: 0 0 0 1rem;
+    }
+
+    .task-item .move-button {
+        margin: 0 1rem 0 0;
+    }
+
     .task-item span {
         font-size: 1.2rem;
+        padding: 0 0 0 1rem;
     }
 }
 
 @media (max-width: 540px) {
-    
-    .title {
-        font-size: 2rem;
+
+    header {
         margin: 1rem 2rem;
+    }
+
+    header .title {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    header #task-count {
+        font-size: 1rem;
+        margin: 0 3rem 0 0;
+    }
+
+    header .reset-button {
+        padding: 0.5rem;
     }
 
     #task-form {
@@ -119,6 +241,7 @@ svg {
 
     #task-input {
         font-size: 1rem;
+        padding: 0 0 0 1rem;
     }
 
     .submit-button {
@@ -130,11 +253,88 @@ svg {
         font-size: 1.5rem;
     }
 
-    .task-item button {
+    .task-item {
+        padding: 0 0 0 1rem;
+    }
+
+    .task-item .delete-button {
         padding: 0.5rem;
     }
 
     .task-item span {
         font-size: 1rem;
+        padding: 0 0 0 1rem;
+    }
+}
+
+@media (max-width: 300px) {
+
+    header {
+        margin: 0.5rem 1rem;
+    }
+
+    header .title {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    header #task-count {
+        font-size: 0.8rem;
+        margin: 0 2rem 0 0;
+    }
+
+    header .reset-button {
+        padding: 0.2rem;
+    }
+
+    #task-input {
+        font-size: 0.8rem;
+        padding-left: 0.8rem;
+    }
+
+    .submit-button {
+        padding: 0.2rem;
+    }
+
+    #task-list {
+        margin: 1rem;
+    }
+
+    #task-form {
+        margin: 0.5rem 1rem;
+    }
+
+    .task-item {
+        padding: 0 0 0 0.8rem;
+    }
+
+    .task-item .move-button {
+        display: none;
+    }
+
+    .task-item input[type="checkbox"] {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .task-item span {
+        font-size: 0.8rem;
+        padding: 0 0 0 0.5rem;
+    }
+
+    .task-item .delete-button {
+        padding: 0.2rem;
+    }
+}
+@media (max-width: 188px) {
+
+    header .title {
+        display: none;
+    }
+
+    header #task-count {
+        font-size: 1rem;
+        position: relative;
+        margin: 0;
     }
 }

@@ -6,28 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="styles.css">
-    <Script src="script.js" defer></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://kit.fontawesome.com/d5e888c1f2.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-    <h1 class="title">To Do List</h1>
+    <header>
+        <h1 class="title">To Do List</h1>
+        <p id="task-count"></p>
+        <button class="reset-button">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+        </button>
+    </header>
 
     <form id="task-form">
         <input type="text" id="task-input" placeholder="New Task" required>
         <button type="submit" class="submit-button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
+            <i class="fa-solid fa-plus"></i>
         </button>
     </form>
 
     <ul id="task-list"></ul>
+
+    <footer>
+        <p id="footer-text">Made by Savio</p>
+        <a class="github" href="https://github.com/saviosales18"><i></i></a>
+    </footer>
 
 </body>
 
